@@ -126,7 +126,7 @@ class MailChecker
 	}
 
 	/**
-	 *
+	 * Check all emails in current list
 	 */
 	private function checkEmails()
 	{
@@ -136,9 +136,9 @@ class MailChecker
 	}
 
 	/**
-	 *
+	 * Saves verification statuses for all emails in list
 	 */
-	private function updateEmails()
+	private function saveVerificationStatus()
 	{
 		$q_ins_validation = $this->query_factory->newInsert()->table(self::VALIDATION_TABLE_NAME);
 		foreach ($this->emails as $email) {
@@ -164,7 +164,7 @@ class MailChecker
 		do {
 			$this->getEmails();
 			$this->checkEmails();
-			$this->updateEmails();
+			$this->saveVerificationStatus();
 		} while ($this->length != count($this->emails)); // got less, than length => done
 	}
 
