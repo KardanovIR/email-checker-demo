@@ -1,0 +1,5 @@
+{
+  "require": {
+    "aura/sqlquery": "~3.0"
+  }
+}
